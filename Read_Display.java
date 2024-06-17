@@ -1,5 +1,5 @@
 import java.util.*;
-public class Array{
+public class Read_Display{
     public static void main(String[]args){
         Scanner sc=new Scanner(System.in);
         System.out.println("enter the number of digits in the array");
