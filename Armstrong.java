@@ -1,27 +1,18 @@
-import java.util.*;
-public class Armstrong{
-    public static void main(String[]args){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("enter the number of digits in the array");
-        int n=sc.nextInt();
-        // int[]arr=new int[n];
-        while(a!=0){
-        // r=a%10
-         n=n/10; 
-         n++;
+ public class Armstrong {
+    public static void main(String[] args) {
+        int n, count = 0, a, b, c, sum = 0;
+        System.out.print("Armstrong numbers from 1 to 1000: ");
+        for (int i = 1; i <= 1000; i++) {
+            n = i;
+            while (n > 0) {
+                b = n % 10;
+                sum = sum + (b * b * b);
+                n = n / 10;
+            }
+            if (sum == i) {
+                System.out.print(i + " ");
+            }
+            sum = 0;
         }
-        int num=0;
-        int temp=n;
-        int r;
-    //d=n
-    while(temp!=0){
-        r=temp%10 
-        //d=d*10+r
-        num+=Math.pow(r,n)
-        temp=Math.floor(temp/10)
-     }
-      if(num==n){
-            System.out.println("Armstrong number");
     }
-  }
 }
