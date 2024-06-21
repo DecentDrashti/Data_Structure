@@ -8,6 +8,7 @@ public class Read_Display{
         for(int i=0;i<n;i++){
             System.out.println("enter the value of array");
             arr[i]=sc.nextInt();
+            //System.out.println("arr["+i+"]="+arr[i]);
         }
         for(int i=0;i<n;i++){
             System.out.println("arr["+i+"]="+arr[i]);
