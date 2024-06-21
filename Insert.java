@@ -21,12 +21,12 @@ public class Insert{
         if(num>arr[i]&&num<arr[j]){
             temp[i]=arr[i];
             temp[j]=num;
-            temp
-            // int k=i;
-            // for(int j=k+1;j<=n;j++){
-            //     temp[j]=arr[k];
-            //     k++;
-            // }
+        //    temp
+        //     int k=i;
+        //     for(int j=k+1;j<=n;j++){
+        //         temp[j]=arr[k];
+        //         k++;
+        //     }
             }else if(i<index){
                 temp[i]=arr[i];
             }
