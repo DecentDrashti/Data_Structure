@@ -8,13 +8,13 @@ public class Anagram_Game{
         System.out.println("Enter " + n + " words:");
         for(int i=0;i<n;i++){
             System.out.println("Enter the word "+(i+1)+" : ");
-            arr[i] = sc.nextLine();
+            arr[i] =sc.next();
         }
         int index=(int)(Math.random() * n);
         System.out.println("The word to be guessed is: "+arr[index]);
         String word=arr[index];
         System.out.println("Enter its anagram:");
-        String anagram = sc .nextLine();
+        String anagram = sc .next();
          if(isAnagram(word, anagram)){
             System.out.println("Wow!! you got the correct!");
         } 
