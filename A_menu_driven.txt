@@ -1,0 +1,105 @@
+System.out.println("To facilitate the function press following number as per your requirement \n 1->Push\n 2->Delete\n 3->Peep\n 4->Change\n 5->Display\n 6->exit");
+boolean isTheEnd = false;
+        while (true) {
+            System.out.println("Please enter your choice:");
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter the element to be pushed:");
+                    int x = sc.nextInt();
+                    stack.push(x);
+                    break;
+
+                case 2:
+                    int popped = stack.pop();
+                    if (popped == -1) {
+                        System.out.println("Stack underflow");
+                    } else {
+                        System.out.println("Popped element is: " + popped);
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Enter the index to peek/see the element:");
+                    int i = sc.nextInt();
+                    int peek = stack.peek(i);
+                    if (peek == -1) {
+                        System.out.println("Invalid Index");
+                    } else {
+                        System.out.println("Element at index " + i + " is: " + peek);
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Enter the index and the new element to change:");
+                    System.out.println("index=");
+                    i = sc.nextInt();
+                    System.out.println("new element=");
+                    x = sc.nextInt();
+                    stack.changeValueAtIndex(i, x);
+                    break;
+
+                case 5:
+                    stack.display();
+                    break;
+
+                case 6:
+                    isTheEnd = true;
+                    break;
+
+                default:
+                    System.out.println("Please Enter valid choice");
+            } 
+            if (isTheEnd) {
+                break;
+            }
+        }
+        System.out.println("Have a Wonderful Day...bye bye");
+
+
+        or
+
+         int choice;
+
+        do {
+            System.out.println("\nPress the following number as per your requirement:");
+            System.out.println("1 -> Push the number on the top");
+            System.out.println("2 -> Delete the number from the top");
+            System.out.println("3 -> Peek the top element");
+            System.out.println("4 -> Display the whole linked list");
+            System.out.println("5 -> Exit");
+            choice = sc.nextInt();
+           switch(choice){
+                case 1:
+                    System.out.println("Enter a value to Push: ");
+                    int x = sc.nextInt();
+                    st.push(x);
+                    break;
+
+                case 2:st.poll();
+                       break;
+                       
+                case 3:
+                    System.out.println("Enter a position of element to peek: ");
+                    int i = sc.nextInt();
+                    st.peek(i);
+                    break;
+
+                case 4:st.display();
+                       break;
+
+                
+                default:
+                     System.out.println("Invalid choice. Please select a valid option.");
+                
+
+                case 5:
+                    System.out.println("Exiting the program.Have a Wonderful Day...bye bye!");
+                    
+                    return;
+
+        }
+       } while (choice != 5);
+        sc.close();
+    
