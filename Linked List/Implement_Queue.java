@@ -1,126 +1,131 @@
 import java.util.*;
+
 class Node {
     int data;
     Node link;
 
-     public Node(int data) {
+    public Node(int data) {
         this.data = data;
         this.link = null;
     }
 }
-class Stacks{
-     Node top =null;
 
-      public void push(int data) {
+class Queue {
+    Node front = null;
+    Node rear = null;
+
+    // Add element to the queue
+    public void enqueue(int data) {
         Node newNode = new Node(data);
 
-        if(top==null)
-        {
-         top=newNode;
+        if (front == null) {
+            front = newNode;
+            rear = newNode;
+        } 
+        else {
+            rear.link = newNode;
+            rear = newNode;
         }
-        else
-        { 
-        top.link = newNode;
-          newNode=top;
-        }
+
+        System.out.println(data + " is added to the queue");
     }
-    public void display() {
-      Node current = top;
-      if(current==null){
-        System.out.println("Sorry linkedlist is null");
-        return;
-      }
-        while (current != null) 
-        {
-        System.out.print(current.data + " ");
-        current = current.link;
+
+    // Remove element from the queue
+    public void dequeue() {
+        if (front == null) {
+            System.out.println("Oops!! Queue is empty, cannot dequeue");
+            return;
+        }
+
+        System.out.println("Dequeued element: " + front.data);
+
+        front = front.link;
+
+        // If queue becomes empty
+        if (front == null) {
+            rear = null;
         }
     }
 
-    public void poll(){
-        Node current = top;
-        if(top==null)
-        {
-          System.out.println("oops!!no element inside can not be pop");
+    // Show front element
+    public void peek() {
+        if (front == null) {
+            System.out.println("Queue is empty");
+            return;
         }
-        else
-        {
-          top=top.link;
-          current.link=null;
-          System.out.println("Thus,the top most element is popped");
-        }
+
+        System.out.println("Front element: " + front.data);
     }
-    public void peek(int i){
-        Node current=top;
-        if(top==null)
-        {
-          System.out.println("Stack is empty");
-          return ;
+
+    // Display entire queue
+    public void display() {
+        if (front == null) {
+            System.out.println("Queue is empty");
+            return;
         }
-        for(int j=0;j<=i;j++)
-        {
-          if(j==i){
-            System.out.println(current.data);
-          }
-          else{
-            current=current.link;
-          }
+
+        Node current = front;
+
+        System.out.print("Queue: ");
+
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.link;
         }
-        //doubt
-        // if(j>i){
-        //     System.out.println("you have entered only"+i+"values of linkedlist so only values till"+(i-1)+"is possible");
-        // }
-        //and peek ni loop one thi chalu karvi che
-    }  
-} 
+
+        System.out.println();
+    }
+}
 
 public class Implement_Queue {
-    public static void main(String[]args) {
-        Scanner sc=new Scanner(System.in);
-        Stacks st=new Stacks();
-        
-      
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        Queue q = new Queue();
+
         int choice;
 
         do {
             System.out.println("\nPress the following number as per your requirement:");
-            System.out.println("1 -> Push the number on the top");
-            System.out.println("2 -> Delete the number from the top");
-            System.out.println("3 -> Peek the top element");
-            System.out.println("4 -> Display the whole linked list");
+            System.out.println("1 -> Enqueue");
+            System.out.println("2 -> Dequeue");
+            System.out.println("3 -> Peek");
+            System.out.println("4 -> Display the queue");
             System.out.println("5 -> Exit");
+
             choice = sc.nextInt();
-           switch(choice){
+
+            switch (choice) {
+
                 case 1:
-                    System.out.println("Enter a value to Push: ");
+                    System.out.println("Enter a value to enqueue:");
                     int x = sc.nextInt();
-                    st.push(x);
+                    q.enqueue(x);
                     break;
 
-                case 2:st.poll();
-                       break;
-                       
+                case 2:
+                    q.dequeue();
+                    break;
+
                 case 3:
-                    System.out.println("Enter a position of element to peek: ");
-                    int i = sc.nextInt();
-                    st.peek(i);
+                    q.peek();
                     break;
 
-                case 4:st.display();
-                       break;
-
-                
-                default:
-                     System.out.println("Invalid choice. Please select a valid option.");
-                
+                case 4:
+                    q.display();
+                    break;
 
                 case 5:
                     System.out.println("Exiting the program. Goodbye!");
-                    
                     return;
 
-        }
-       } while (choice != 5);
+                default:
+                    System.out.println("Invalid choice. Please select a valid option.");
+            }
+
+        } while (choice != 5);
+
         sc.close();
     }
 }
